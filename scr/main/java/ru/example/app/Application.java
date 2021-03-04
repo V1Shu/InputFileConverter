@@ -5,6 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import ru.example.app.controller.ConvertServiceController;
+import ru.example.app.model.FileData;
 import ru.example.app.services.ConvertService;
 import ru.example.app.services.ConvertServiceImpl;
 
@@ -18,6 +19,10 @@ public class Application {
         String[] fileList = new String[] {"order1.csv", "order2.json"};
 
         ConvertServiceImpl convertService = new ConvertServiceImpl();
-        convertService.convertFile(fileList);
+
+        for (FileData fileData : convertService.convertFile(fileList)) {
+            System.out.println(fileData);
+        }
+
     }
 }

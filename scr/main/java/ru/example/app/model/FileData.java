@@ -19,13 +19,13 @@ public class FileData {
     @Override
     public String toString() {
         return "{" +
-                "id:" + id +
-                ", amount:" + amount +
-                ", currency:" + currency +
-                ", comment:'" + comment +
-                ", fileName:'" + fileName +
-                ", line:" + line +
-                ", result:'" + result +
+                "\"id\":" + id +
+                ", \"amount\":" + amount +
+                ", \"currency\":" + currency +
+                ", \"comment\":" + comment +
+                ", \"fileName\":" + fileName +
+                ", \"line\":" + line +
+                ", \"result\":" + result +
                 '}';
     }
 }

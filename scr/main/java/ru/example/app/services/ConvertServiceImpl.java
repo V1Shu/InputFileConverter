@@ -1,6 +1,5 @@
 package ru.example.app.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.example.app.adapters.CSVToFileData;
 import ru.example.app.model.FileData;
@@ -15,9 +14,10 @@ public class ConvertServiceImpl implements ConvertService {
     private final CSVToFileData csvToFileData = new CSVToFileData();
 
     @Override
-    public ArrayList<FileData> convertFile(String[] fileArray) {
+    public List<FileData> convertFile(String[] fileArray) {
         String path = System.getProperty("user.dir");
         List<File> fileList = new ArrayList<>();
+        List<FileData> fileDataList = new ArrayList<>();
 
         for (String fileName : fileArray) {
             String fullFileName = path + File.separator + fileName;
@@ -30,13 +30,11 @@ public class ConvertServiceImpl implements ConvertService {
             String expansion = (lastDot == -1) ? null : file.getName().substring(++lastDot);
             System.out.println(expansion);
 
-            if (expansion.toLowerCase().equals("csv")) {
-                List<FileData> fileDataList = csvToFileData.convertToFileData(file);
-                //System.out.println(fileData.toString());
+            if (expansion.equalsIgnoreCase("csv")) {
+                fileDataList = (csvToFileData.convertToFileData(file));
             }
         }
-        ArrayList<FileData> returnArray = new ArrayList<FileData>();
-        returnArray.add(new FileData());
-        return returnArray;
+
+        return fileDataList;
     }
 }
