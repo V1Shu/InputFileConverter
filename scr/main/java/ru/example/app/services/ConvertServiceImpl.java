@@ -2,6 +2,7 @@ package ru.example.app.services;
 
 import org.springframework.stereotype.Component;
 import ru.example.app.adapters.CSVToFileData;
+import ru.example.app.adapters.JSONToFileData;
 import ru.example.app.model.FileData;
 
 import java.io.File;
@@ -12,6 +13,7 @@ import java.util.List;
 public class ConvertServiceImpl implements ConvertService {
 
     private final CSVToFileData csvToFileData = new CSVToFileData();
+    private final JSONToFileData jsonToFileData = new JSONToFileData();
 
     @Override
     public List<FileData> convertFile(String[] fileArray) {
@@ -31,7 +33,9 @@ public class ConvertServiceImpl implements ConvertService {
             System.out.println(expansion);
 
             if (expansion.equalsIgnoreCase("csv")) {
-                fileDataList = (csvToFileData.convertToFileData(file));
+                fileDataList.addAll(csvToFileData.convertToFileData(file));
+            } else if (expansion.equalsIgnoreCase("json")) {
+                fileDataList.addAll(jsonToFileData.convertToFileData(file));
             }
         }
 

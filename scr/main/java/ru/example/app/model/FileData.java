@@ -21,11 +21,10 @@ public class FileData {
         return "{" +
                 "\"id\":" + id +
                 ", \"amount\":" + amount +
-                ", \"currency\":" + currency +
-                ", \"comment\":" + comment +
-                ", \"fileName\":" + fileName +
+                ", \"comment\":" + "\"" + comment + "\"" +
+                ", \"fileName\":" + "\"" + fileName + "\"" +
                 ", \"line\":" + line +
-                ", \"result\":" + result +
+                ", \"result\":" + "\"" + result + "\"" +
                 '}';
     }
 }
