@@ -1,5 +1,11 @@
 package ru.example.app.services;
 
+import ru.example.app.model.FileData;
+
+import java.io.File;
+import java.util.ArrayList;
+
 public interface ConvertService {
-    //TODO method for convert
+
+    ArrayList<FileData> convertFile(String[] fileArray);
 }
