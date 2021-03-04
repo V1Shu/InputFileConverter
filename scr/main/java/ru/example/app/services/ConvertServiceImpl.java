@@ -27,11 +27,12 @@ public class ConvertServiceImpl implements ConvertService {
 
         for (File file : fileList) {
             int lastDot = file.getName().lastIndexOf('.');
-            String expansion = (lastDot == -1) ? null : file.getName().substring(lastDot);
+            String expansion = (lastDot == -1) ? null : file.getName().substring(++lastDot);
+            System.out.println(expansion);
 
             if (expansion.toLowerCase().equals("csv")) {
-                FileData fileData = csvToFileData.convertToFileData(file);
-                System.out.println(fileData.toString());
+                List<FileData> fileDataList = csvToFileData.convertToFileData(file);
+                //System.out.println(fileData.toString());
             }
         }
         ArrayList<FileData> returnArray = new ArrayList<FileData>();
