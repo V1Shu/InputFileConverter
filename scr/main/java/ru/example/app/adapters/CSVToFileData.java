@@ -36,7 +36,7 @@ public class CSVToFileData implements ConvertToFileData {
                 line++;
             }
         } catch (IOException | NumberFormatException e) {
-            fileData.setResult(e.getClass().toString());
+            fileData.setResult("File reading error. Check file " + file.getName());
         }
 
         return fileDataList;

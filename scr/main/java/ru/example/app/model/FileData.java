@@ -1,5 +1,6 @@
 package ru.example.app.model;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FileData {
+
+    @SerializedName("orderId")
     private long id;
     private double amount;
     private Currency currency;
