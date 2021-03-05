@@ -23,14 +23,12 @@ public class ConvertServiceImpl implements ConvertService {
 
         for (String fileName : fileArray) {
             String fullFileName = path + File.separator + fileName;
-            System.out.println(fullFileName);
             fileList.add(new File(fullFileName));
         }
 
         for (File file : fileList) {
             int lastDot = file.getName().lastIndexOf('.');
             String expansion = (lastDot == -1) ? null : file.getName().substring(++lastDot);
-            System.out.println(expansion);
 
             if (expansion.equalsIgnoreCase("csv")) {
                 fileDataList.addAll(csvToFileData.convertToFileData(file));

@@ -1,7 +1,6 @@
 package ru.example.app.adapters;
 
 import org.springframework.stereotype.Component;
-import ru.example.app.exceptions.IncorrectFileDataException;
 import ru.example.app.model.Currency;
 import ru.example.app.model.FileData;
 
