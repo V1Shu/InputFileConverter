@@ -14,9 +14,7 @@ public class Application {
 
         String[] fileList = new String[] {"order1.csv", "order3.json"};
 
-        ConvertServiceImpl convertService = new ConvertServiceImpl();
-
-        for (FileData fileData : convertService.convertFile(args)) {
+        for (FileData fileData : ConvertServiceImpl.convertFile(args)) {
             System.out.println(fileData);
         }
     }
