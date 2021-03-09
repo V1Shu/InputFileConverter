@@ -5,8 +5,11 @@ import org.springframework.context.annotation.Configuration;
 import ru.example.app.services.ConvertService;
 import ru.example.app.services.ConvertServiceImpl;
 
+/**
+ * Configuration file for spring
+ */
 @Configuration
-public class ApplicationConfigureation {
+public class ApplicationConfiguration {
 
     @Bean
     public ConvertService converter() {

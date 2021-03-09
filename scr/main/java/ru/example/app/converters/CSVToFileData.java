@@ -1,4 +1,4 @@
-package ru.example.app.adapters;
+package ru.example.app.converters;
 
 import org.springframework.stereotype.Component;
 import ru.example.app.model.Currency;
@@ -10,13 +10,21 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for parsing csv file to fileData model
+ */
 @Component
 public class CSVToFileData implements ConvertToFileData {
-
+    /**
+     * Read file by lines, fill FileData model and add to list
+     *
+     * @param file csv class
+     * @return List of FileData models
+     */
     @Override
     public List<FileData> convertToFileData(File file) {
 
-        FileData fileData = null;
+        FileData fileData = new FileData();
         List<FileData> fileDataList = new ArrayList<>();
         try {
             List<String> fileContent = Files.readAllLines(file.toPath());
@@ -41,6 +49,11 @@ public class CSVToFileData implements ConvertToFileData {
         return fileDataList;
     }
 
+    /**
+     *  Return currency from enum
+     * @param currentLine name of currency from file
+     * @return element from currency enum
+     */
     private Currency getCurrency(String currentLine) {
         for (Currency currency : Currency.values()) {
             if (currency.name().equalsIgnoreCase(currentLine)) {

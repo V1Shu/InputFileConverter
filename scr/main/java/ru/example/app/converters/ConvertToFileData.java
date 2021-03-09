@@ -1,4 +1,4 @@
-package ru.example.app.adapters;
+package ru.example.app.converters;
 
 import ru.example.app.model.FileData;
 
